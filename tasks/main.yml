@@ -1,7 +1,9 @@
 ---
 - block:
   - name: create groups
-    group: name={{ item.primary_group }}
+    group:
+      name: "{{ item.primary_group }}"
+      gid: "{{ item.uid | default('') }}"
     when:
       - item.primary_group is defined
       - users_create_primary_group
@@ -11,6 +13,7 @@
   - name: setup users
     user:
       name: "{{ item.name | mandatory }}"
+      uid:  "{{ item.uid | default('') }}"
       group:
         "{{ item.primary_group | default(omit)
         if users_create_primary_group else omit }}"

@@ -44,9 +44,11 @@ List of variables and default values:
     # The only mandatory parameter is the name.
     users:
       - name: ''                           # The username of the user.
+        uid: ''                            # The uid of the user.
         gecos: ''                          # The comment field, also known and used for the real name of the user.
         homedir: ''                        # The home directory of the user.
         primary_group: ''                  # The primary user group.
+        gid: ''                            # The gid of the primary user group.
         groups: []                         # A list of complementary groups for the user.
         no_create_home: false              # If true, do not create a home directory. Defaults to true if `system: true`.
         shell: "{{ users_default_shell }}" # The default user shell.
