@@ -3,7 +3,7 @@
   - name: create groups
     group:
       name: "{{ item.primary_group }}"
-      gid: "{{ item.uid | default('') }}"
+      gid: "{{ item.gid | default('') }}"
     when:
       - item.primary_group is defined
       - users_create_primary_group
